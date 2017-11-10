@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p class="main-navigation-row">
+    <a class="btn btn-default" href="{% url 'eduly_school_list' %}">Schools</a>
+    <a class="btn btn-default" href="{% url 'eduly_teacher_list' %}">Teachers</a>
+    <a class="btn btn-default" href="{% url 'eduly_classform_list' %}">Classes</a>
+    <a class="btn btn-default" href="{% url 'eduly_parent_list' %}">Parents</a>
+    <a class="btn btn-default" href="{% url 'eduly_student_list' %}">Students</a>
+    <a class="btn btn-default" href="{% url 'eduly_task_list' %}">Tasks</a>
+    <a class="btn btn-default" href="{% url 'eduly_subject_list' %}">Subjects</a>
+</p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>name</td>
+    <td>slug</td>
+    <td>created</td>
+    <td>last_updated</td>
+    <td>parentID</td>
+    <td>email</td>
+    <td>phone</td>
+    <td>verified</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.name }}</td>
+    <td>{{ object.slug }}</td>
+    <td>{{ object.created }}</td>
+    <td>{{ object.last_updated }}</td>
+    <td>{{ object.parentID }}</td>
+    <td>{{ object.email }}</td>
+    <td>{{ object.phone }}</td>
+    <td>{{ object.verified }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'eduly_parent_create' %}">Create new Parent</a>
+{% endblock %}
