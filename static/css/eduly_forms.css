@@ -1,0 +1,15 @@
+.eduly-form {
+    margin-top: 40px;
+}
+.main-navigation-row {
+    margin-bottom: 20px;
+}
+.control-label {
+    margin-top: 14px;
+}
+.textInput, .select {
+    min-width: 300px;
+}
+.btn-primary {
+    margin-top: 40px;
+}

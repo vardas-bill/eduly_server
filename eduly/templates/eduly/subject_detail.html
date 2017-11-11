@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p class="main-navigation-row">
+    <a class="btn btn-default" href="{% url 'eduly_school_list' %}">Schools</a>
+    <a class="btn btn-default" href="{% url 'eduly_teacher_list' %}">Teachers</a>
+    <a class="btn btn-default" href="{% url 'eduly_classform_list' %}">Classes</a>
+    <a class="btn btn-default" href="{% url 'eduly_parent_list' %}">Parents</a>
+    <a class="btn btn-default" href="{% url 'eduly_student_list' %}">Students</a>
+    <a class="btn btn-default" href="{% url 'eduly_task_list' %}">Tasks</a>
+    <a class="btn btn-default" href="{% url 'eduly_subject_list' %}">Subjects</a>
+</p>
+<table class="table">
+<tr><td>name</td><td>{{ object.name }}</td></tr>
+<tr><td>slug</td><td>{{ object.slug }}</td></tr>
+<tr><td>created</td><td>{{ object.created }}</td></tr>
+<tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit Subject</a>
+
+{% endblock %}
